@@ -8,12 +8,9 @@
 // (властивість balance), стать яких (властивість gender) збігається зі значенням параметра gender.
 
 const getTotalBalanceByGender = (users, gender) => {
-  return users.reduce((accum, client) => {
-    if (client.gender === gender) {
-      return accum + client.balance;
-    }
-    return accum;
-  }, 0);
+  return users
+    .filter(client => client.gender === gender)
+    .reduce((accum, client) => accum + client.balance, 0);
 };
 
 const clients = [
